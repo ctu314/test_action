@@ -39,3 +39,7 @@ npm run build
 - [Vite](https://vitejs.dev/) — 构建工具
 - [stock-sdk](https://www.npmjs.com/package/stock-sdk) — 股票数据（免费，无需 API Key）
 - [ECharts](https://echarts.apache.org/) — 图表渲染
+
+## 联系方式
+
+欢迎对本项目感兴趣的朋友。**如有使用需求，请提前与我联系沟通，确认后方可使用。**
