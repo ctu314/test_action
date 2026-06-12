@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>股票行情</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>" />
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="header-inner">
+        <button id="user-btn" class="user-btn" title="切换用户">👤 <span id="user-btn-name">用户</span></button>
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input id="search-input" type="text" placeholder="搜索股票代码或名称（支持模糊查询）" autocomplete="off" />
+          <div id="search-dropdown" class="search-dropdown"></div>
+        </div>
+        <div class="data-menu">
+          <button id="data-btn" class="user-btn" title="用户数据维护">💾 用户数据维护</button>
+          <div id="data-dropdown" class="data-dropdown">
+            <div class="dropdown-group">
+              <div class="dropdown-label"><span class="format-badge format-json">JSON</span> 导出</div>
+              <button class="dropdown-item" data-action="export-json-all">全部用户</button>
+              <button class="dropdown-item" data-action="export-json-current">当前用户</button>
+            </div>
+            <div class="dropdown-group">
+              <div class="dropdown-label"><span class="format-badge format-csv">CSV</span> 导出</div>
+              <button class="dropdown-item" data-action="export-csv-all">全部用户</button>
+              <button class="dropdown-item" data-action="export-csv-current">当前用户</button>
+            </div>
+            <div class="dropdown-divider"></div>
+            <button class="dropdown-item" data-action="import">导入</button>
+          </div>
+        </div>
+        <div class="header-spacer"></div>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h3>📋 自选股</h3>
+          <span id="stock-count" class="stock-count">0</span>
+        </div>
+        <div id="watchlist" class="watchlist">
+          <div class="empty-hint">搜索并添加自选股</div>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="stock-title" class="stock-title">请选择一只股票</div>
+        <div class="chart-row">
+          <div id="chart-container" class="chart-container"></div>
+          <div id="stats-panel" class="stats-panel"></div>
+        </div>
+        <div class="period-tabs">
+          <button class="period-btn active" data-period="intraday">分时</button>
+          <button class="period-btn" data-period="daily">日线</button>
+          <button class="period-btn" data-period="weekly">周线</button>
+          <button class="period-btn" data-period="monthly">月线</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- User Modal -->
+  <div id="user-overlay" class="user-overlay">
+    <div class="user-modal">
+      <h2>选择用户</h2>
+      <div id="user-list" class="user-list"></div>
+      <div class="user-create">
+        <input id="user-name-input" type="text" placeholder="输入新用户名" maxlength="20" />
+        <button id="user-create-btn">创建</button>
+        <div id="user-error" class="user-error"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
